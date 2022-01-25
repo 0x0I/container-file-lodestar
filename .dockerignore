@@ -1,4 +1,6 @@
 Dockerfile
+node_modules
+yarn.lock
 .circleci
 .gitignore
 .travis.yml

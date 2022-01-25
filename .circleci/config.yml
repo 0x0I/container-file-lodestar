@@ -1,15 +1,20 @@
 version: 2.1
 jobs:
    build:
-      machine: true
+      machine:
+          image: ubuntu-2004:202111-01
+      environment:
+         DOCKER_BUILDKIT: 1
+         COMPOSE_DOCKER_CLI_BUILD: 1
       steps:
          - checkout
          - run:
               name: docker build complete image
-              command: make build
+              command: build_type=source make build
+
          - run:
               name: docker build and --target test
-              command: make test
+              command: build_type=source make test
 
          - run:
               name: login to Dockerhub for release
@@ -17,4 +22,21 @@ jobs:
 
          - run:
               name: push image version to Dockerhub
-              command: make release
+              command: build_type=source make release
+
+         - run:
+              name: sync Dockerhub README
+              command: >-
+                docker run --rm -v $(pwd)/README.md:/data/README.md
+                -e DOCKERHUB_USR=$DOCKER_LOGIN
+                -e DOCKERHUB_PWD=$DOCKER_PWD
+                -e DOCKERHUB_ORG=0labs
+                -e DOCKERHUB_REPO=lodestar gofunky/readmyhub:stable
+
+         - when:
+              condition:
+                equal: [ master, << pipeline.git.branch >> ]
+              steps:
+                - run:
+                     name: release master version as latest
+                     command: make latest
