@@ -3,9 +3,9 @@
 
 Container File :star2:🔗 Lodestar
 =========
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/container-file-template?color=yellow)
-[![0x0I](https://circleci.com/gh/0x0I/container-file-demo.svg?style=svg)](https://circleci.com/gh/0x0I/container-file-demo)
-[![Docker Pulls](https://img.shields.io/docker/pulls/0labs/demo?style=flat)](https://hub.docker.com/repository/docker/0labs/demo)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/container-file-lodestar?color=yellow)
+[![0x0I](https://circleci.com/gh/0x0I/container-file-lodestar.svg?style=svg)](https://circleci.com/gh/0x0I/container-file-lodestar)
+[![Docker Pulls](https://img.shields.io/docker/pulls/0labs/lodestar?style=flat)](https://hub.docker.com/repository/docker/0labs/lodestar)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 
 Configure and operate Lodestar: an open-source Ethereum Consensus (Eth2) client and Typescript ecosystem maintained by ChainSafe Systems
