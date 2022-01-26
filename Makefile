@@ -8,7 +8,7 @@ build:
 	DOCKER_BUILDKIT=1 docker build --tag $(image_repo):build-$(version) --build-arg build_type=$(build_type) --build-arg lodestar_version=$(version) .
 
 test:
-	DOCKER_BUILDKIT=1 docker build --tag lighthouse:test --target test --build-arg build_type=$(build_type) --build-arg lodestar_version=$(version) . && docker run --env-file test/test.env lodestar:test
+	DOCKER_BUILDKIT=1 docker build --tag lodestar:test --target test --build-arg build_type=$(build_type) --build-arg lodestar_version=$(version) . && docker run --env-file test/test.env lodestar:test
 
 test-compose-beacon:
 	echo "image=${image_repo}:${version}" > compose/.env-test

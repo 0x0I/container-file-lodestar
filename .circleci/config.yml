@@ -10,11 +10,11 @@ jobs:
          - checkout
          - run:
               name: docker build complete image
-              command: build_type=source make build
+              command: make build
 
          - run:
               name: docker build and --target test
-              command: build_type=source make test
+              command: make test
 
          - run:
               name: login to Dockerhub for release
@@ -22,7 +22,7 @@ jobs:
 
          - run:
               name: push image version to Dockerhub
-              command: build_type=source make release
+              command: make release
 
          - run:
               name: sync Dockerhub README

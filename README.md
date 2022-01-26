@@ -1,5 +1,5 @@
 <p><img src="https://avatars1.githubusercontent.com/u/12563465?s=200&v=4" alt="OCI logo" title="oci" align="left" height="70" /></p>
-<p><img src="https://chainsafe.github.io/lodestar/assets/lodestar_icon_300.png" alt="lodestar logo" title="Lodestar" align="right" height="120" /></p>
+<p><img src="https://chainsafe.github.io/lodestar/assets/lodestar_icon_300.png" alt="lodestar logo" title="Lodestar" align="right" height="100" /></p>
 
 Container File :star2:🔗 Lodestar
 =========
