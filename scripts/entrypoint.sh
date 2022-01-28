@@ -8,8 +8,14 @@ if [[ -d "$DIR" ]] ; then
   /bin/run-parts --exit-on-error "$DIR"
 fi
 
-if [[ -n "${EXTRA_ARGS:-""}" ]]; then
-  exec /usr/bin/tini -g -- $@ ${EXTRA_ARGS}
+if [[ -n "${LODESTAR_CONFIG_DIR:-""}" ]]; then
+  run_args="--rcConfig=${LODESTAR_CONFIG_DIR}/config.toml ${EXTRA_ARGS:-}"
+else
+  run_args=${EXTRA_ARGS:-""}
+fi
+
+if [[ -n "${run_args:-""}" ]]; then
+  exec /usr/bin/tini -g -- $@ ${run_args}
 else
   exec /usr/bin/tini -g -- "$@"
 fi

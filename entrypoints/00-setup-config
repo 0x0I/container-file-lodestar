@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Print all commands executed if DEBUG mode enabled
+[ -n "${DEBUG:-""}" ] && set -x
+
+config_dir="${LODESTAR_CONFIG_DIR:-/etc/lodestar}"
+config_path="${config_dir}/config.yml"
+
+mkdir -p $config_dir
+
+# customize config based on set "CONFIG_<setting>" environment variables
+lodestar-helper config customize --config-path $config_path

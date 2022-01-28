@@ -56,7 +56,7 @@ COPY scripts/entrypoint.sh /usr/local/bin/lodestar-entrypoint
 COPY scripts/lodestar-helper.py /usr/local/bin/lodestar-helper
 RUN chmod 775 /usr/local/bin/lodestar-helper
 
-RUN pip3 install click requests
+RUN pip3 install click pyaml
 
 ENTRYPOINT ["lodestar-entrypoint"]
 
