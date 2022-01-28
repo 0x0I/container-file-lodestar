@@ -8,14 +8,11 @@ if [[ -d "$DIR" ]] ; then
   /bin/run-parts --exit-on-error "$DIR"
 fi
 
-if [[ -n "${LODESTAR_CONFIG_DIR:-""}" ]]; then
-  run_args="--rcConfig=${LODESTAR_CONFIG_DIR}/config.toml ${EXTRA_ARGS:-}"
-else
-  run_args=${EXTRA_ARGS:-""}
+conf="${LODESTAR_CONFIG_DIR:-/etc/lodestar}/config.yml"
+if [[ -z "${DISABLE_RUNARGS+x}" && -f "${conf}" ]]; then
+    run_args="--rcConfig=${conf} ${EXTRA_ARGS:-}"
+elif [[ -z "${DISABLE_RUNARGS+x}" ]]; then
+    run_args="${EXTRA_ARGS:-}"
 fi
 
-if [[ -n "${run_args:-""}" ]]; then
-  exec /usr/bin/tini -g -- $@ ${run_args}
-else
-  exec /usr/bin/tini -g -- "$@"
-fi
+exec /usr/bin/tini -g -- $@ ${run_args:-}
