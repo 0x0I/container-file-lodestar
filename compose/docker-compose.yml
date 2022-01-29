@@ -20,7 +20,7 @@ services:
       - ${beacon_api_port:-9596}:9596/tcp
       - ${beacon_metrics_port:-8008}:8008/tcp
     volumes:
-      - "${host_root_dir:-/var/tmp/lodestar}:${CONFIG_rootDir:-/var/tmp/lodestar}"
+      - "${host_root_dir:-/var/tmp/lodestar}:${CONFIG_rootDir:-/root/.local/share/lodestar/}"
     networks:
       - ethereum
     restart: ${restart_policy:-unless-stopped}
@@ -34,9 +34,7 @@ services:
     env_file:
       - ${validator_env_vars:-.validator.env}
     volumes:
-      - "${host_root_dir:-/var/tmp/lodestar}:${CONFIG_rootDir:-/var/tmp/lodestar}"
-      - "${host_secrets_dir:-/var/tmp/lodestar/secrets}:${CONFIG_secretsDir:-/var/tmp/lodestar/secrets}"
-      - "${host_keystores_dir:-/var/tmp/lodestar/keystore}:${CONFIG_keystoresDir:-/var/tmp/lodestar/keystores}"
+      - "${host_root_dir:-/var/tmp/lodestar}:${CONFIG_rootDir:-/root/.local/share/lodestar/}"
     networks:
       - ethereum
     restart: ${restart_policy:-unless-stopped}
