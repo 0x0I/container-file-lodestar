@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Print all commands executed if DEBUG mode enabled
+[ -n "${DEBUG:-""}" ] && set -x
+
+if [[ "$SETUP_VALIDATOR" = "true" ]]; then
+    echo "${VALIDATOR_KEYSTORE_PASSWORD}" > /tmp/keystore-password
+
+    if [ -n "${VALIDATOR_KEYS_DIR+x}" ]; then
+        keydir="${VALIDATOR_KEYS_DIR}"
+    elif [ -n "${DEPOSIT_DIR+x}" ]; then
+        keydir="${DEPOSIT_DIR}"
+    else
+        keydir="/keys"
+    fi
+
+    lodestar account validator --secretsDir=/tmp import --network="${ETH2_CHAIN:-prater}" --directory=$keydir
+fi

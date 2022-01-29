@@ -72,7 +72,7 @@ WORKDIR /test
 COPY test /test
 
 ENV NODE_OPTIONS=--max-old-space-size=4096
-ENV DISABLE_RUNARGS=1
+ENV NOLOAD_CONFIG=1
 
 CMD ["goss", "--gossfile", "/test/goss.yaml", "validate"]
 

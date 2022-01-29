@@ -19,7 +19,7 @@ file:
     contains:
       - "network: prater"
       - "rootDir: /var/tmp/lodestar"
-      - "eth1.enabled: true"
+      - "eth1.enabled: false"
       - 'execution.urls: ["http://localhost:8545"]'
 package:
   curl:
