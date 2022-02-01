@@ -25,6 +25,10 @@ jobs:
               command: make release
 
          - run:
+              name: test Beacon-chain node docker-compose definition
+              command: make test-compose-beacon
+
+         - run:
               name: sync Dockerhub README
               command: >-
                 docker run --rm -v $(pwd)/README.md:/data/README.md
