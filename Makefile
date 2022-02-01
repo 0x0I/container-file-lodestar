@@ -13,10 +13,10 @@ test:
 test-compose-beacon:
 	echo "image=${image_repo}:${version}" > compose/.env-test
 	cd compose && docker-compose --env-file .env-test config && docker-compose --env-file .env-test up -d lodestar-beacon && \
-	sleep 60 && docker-compose logs 2>&1 | grep "Configured for network" && \
-	docker-compose logs 2>&1 | grep "prater" && \
-	docker-compose logs 2>&1 | grep "Block production enabled" && \
-	docker-compose logs 2>&1 | grep "HTTP API started" && \
+	sleep 30 && docker-compose logs 2>&1 | grep "Initializing beacon state" && \
+	docker-compose logs 2>&1 | grep "network=prater" && \
+	docker-compose logs 2>&1 | grep "Starting metrics HTTP server" && \
+	docker-compose logs 2>&1 | grep "Started REST api server" && \
 	docker-compose down && rm .env-test
 
 test-compose-validator:

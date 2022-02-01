@@ -7,7 +7,7 @@ if [[ -d "$DIR" ]] ; then
   /bin/run-parts --exit-on-error "$DIR"
 fi
 
-conf="${LODESTAR_CONFIG_DIR:-/etc/lodestar}/config.yml"
+conf="${CONF_DIR:-/etc/lodestar}/config.yml"
 if [[ -z "${NOLOAD_CONFIG}" && -f "${conf}" ]]; then
   echo "Loading config at ${conf}..."
   run_args="--rcConfig=${conf} ${EXTRA_ARGS:-}"

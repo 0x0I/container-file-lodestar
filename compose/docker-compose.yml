@@ -11,7 +11,7 @@ services:
       - "lodestar"
       - "beacon"
     environment:
-      LODESTAR_CONFIG_DIR: ${LODESTAR_CONFIG_DIR:-/etc/lodestar}
+      CONF_DIR: ${CONF_DIR:-/etc/lodestar}
     env_file:
       - ${beacon_env_vars:-.beacon.env}
     ports:
@@ -20,7 +20,7 @@ services:
       - ${beacon_api_port:-9596}:9596/tcp
       - ${beacon_metrics_port:-8008}:8008/tcp
     volumes:
-      - "${host_root_dir:-/var/tmp/lodestar}:${CONFIG_rootDir:-/root/.local/share/lodestar/}"
+      - "${host_root_dir:-/var/tmp/lodestar}:${CONFIG_rootDir:-/root/.local/share/lodestar}"
     networks:
       - ethereum
     restart: ${restart_policy:-unless-stopped}
