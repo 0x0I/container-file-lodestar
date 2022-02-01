@@ -24,7 +24,7 @@ def config():
 # Commands for application configuration customization and inspection
 ###
 
-DEFAULT_LODESTAR_CONFIG_PATH = "{dir}/config.yml".format(dir=os.environ.get("LODESTAR_CONFIG_DIR", "/etc/lodestar"))
+DEFAULT_LODESTAR_CONFIG_PATH = "{dir}/config.yml".format(dir=os.environ.get("CONF_DIR", "/etc/lodestar"))
 
 
 def print_json(json_blob):
