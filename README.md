@@ -1,7 +1,7 @@
 <p><img src="https://avatars1.githubusercontent.com/u/12563465?s=200&v=4" alt="OCI logo" title="oci" align="left" height="70" /></p>
 <p><img src="https://chainsafe.github.io/lodestar/assets/lodestar_icon_300.png" alt="lodestar logo" title="Lodestar" align="right" height="100" /></p>
 
-Container File :star2:🔗 Lodestar
+Container File 🌟🔗 Lodestar
 =========
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/0x0I/container-file-lodestar?color=yellow)
 [![0x0I](https://circleci.com/gh/0x0I/container-file-lodestar.svg?style=svg)](https://circleci.com/gh/0x0I/container-file-lodestar)
