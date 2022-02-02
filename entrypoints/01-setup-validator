@@ -14,5 +14,5 @@ if [[ "$SETUP_VALIDATOR" = "true" ]]; then
         keydir="/keys"
     fi
 
-    lodestar account validator --secretsDir=/tmp import --network="${ETH2_CHAIN:-prater}" --directory=$keydir
+    echo "${VALIDATOR_KEYSTORE_PASSWORD}" | lodestar account validator import --network="${ETH2_CHAIN:-prater}" --directory=$keydir --rootDir="${CONFIG_rootDir:-/root/.local/share/lodestar}"
 fi
